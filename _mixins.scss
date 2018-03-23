@@ -1,0 +1,73 @@
+// Linear Gradient
+// from: http://coderesponsible.com/useful-sass-mixins/
+@mixin linearGradient($top, $bottom){
+  background: $top; /* Old browsers */
+  background: -moz-linear-gradient(top,  $top 0%, $bottom 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,$top), color-stop(100%,$bottom)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top,  $top 0%,$bottom 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top,  $top 0%,$bottom 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top,  $top 0%,$bottom 100%); /* IE10+ */
+  background: linear-gradient(to bottom,  $top 0%,$bottom 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#000000',GradientType=0 ); /* IE6-9 */
+}
+
+// Media Query Breakpoints
+// from: http://coderesponsible.com/useful-sass-mixins/
+@mixin breakpoint($size) {
+  @media only screen and (max-width : $size + px) { @content; }
+}
+
+// Rounded Corners
+// from: http://coderesponsible.com/useful-sass-mixins/
+@mixin roundedCorners($size){
+  -webkit-border-radius: $size + px;
+     -moz-border-radius: $size + px;
+          border-radius: $size + px;
+}
+
+// Opacity
+// from: http://coderesponsible.com/useful-sass-mixins/
+@mixin opacity($opacity) {
+  opacity: $opacity;
+  $opacity-ie: $opacity * 100;
+  filter: alpha(opacity=$opacity-ie); //IE8
+}
+
+// Circle
+// from: https://www.webcreatorbox.com/en/tutorials/sass-mixin-en
+@mixin circle($size) {
+  width: $size;
+  height: $size;
+  border-radius: 100%;
+}
+
+// Clearfix
+// from: http://zerosixthree.se/8-sass-mixins-you-must-have-in-your-toolbox/
+// Use: @extend %clearfix;
+%clearfix {
+  *zoom: 1;
+  &:before, &:after {
+    content: " ";
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+// Vertical Align
+// from: https://css-tricks.com/snippets/sass/centering-mixin
+@mixin centerer($horizontal: true, $vertical: true) {
+  position: absolute;
+  @if ($horizontal and $vertical) {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  } @else if ($horizontal) {
+    left: 50%;
+    transform: translate(-50%, 0);
+  } @else if ($vertical) {
+    top: 50%;
+    transform: translate(0, -50%);
+  }
+}
